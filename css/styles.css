@@ -206,17 +206,17 @@ header {
 }
 .what-we-do-text {
   position: absolute;
-  font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.03em;
-  line-height: 1.03;
-  padding: 27px;
-  text-align: center;
+  line-height: 1.14;
   color: var(--header-background);
   background-image: linear-gradient(#2f303acc, #2f303acc);
   width: 100%;
   bottom: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .third-header {
   font-weight: 700;
@@ -266,16 +266,12 @@ header {
 .dark-background {
   background-color: var(--footer-background-color);
   padding: 60px 0px;
-  max-width: 1600px;
-  margin: 0 auto;
 }
 .header-background {
   background-color: var(--header-background);
 }
 .light-background {
   background-color: var(--light-background);
-  max-width: 1600px;
-  margin: 0 auto;
 }
 .text {
   display: flex;
@@ -440,7 +436,8 @@ header {
   position: relative;
   overflow: hidden;
 }
-.overlay-box:hover .our-projects-overlay {
+.overlay-box:hover .our-projects-overlay,
+.overlay-box:focus .our-projects-overlay {
   transform: translateX(0);
 }
 .our-projects-overlay {
@@ -463,6 +460,13 @@ header {
   padding: 49px 45px 49px 24px;
 }
 
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%) scale(0) rotate(0deg)
+    skew(40deg, 40deg);
+}
 .backdrop {
   position: fixed;
   left: 0;
@@ -470,6 +474,10 @@ header {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   position: absolute;
@@ -481,11 +489,7 @@ header {
   border-radius: 4px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  opacity: inherit;
-  visibility: inherit;
   transform: translate(-50%, -50%);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal > button {
   position: absolute;
@@ -503,9 +507,4 @@ header {
 .close-btn-icon {
   height: 18px;
   width: 18px;
-}
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
 }
